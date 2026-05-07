@@ -37,7 +37,7 @@ jobs:
       - name: Build
       # Bygg projektet med Vite och lägg till '/tslab3/' till bas-URL:en
       # Detta är superviktigt - annars hittas inte projektfilerna
-        run: npm run build -- --base /tslab3/ 
+        run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
