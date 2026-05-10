@@ -38,7 +38,7 @@ jobs:
       # Bygg projektet med Vite och lägg till '/tslab3/browser' till bas-URL:en
       # Detta är superviktigt - annars hittas inte projektfilerna
       # Detta är fungerande Angular publiceringsinställning
-        run: npm run build --omit=dev -- --base-href=https://wesl2400-miun.github.io/tslab3/browser/
+        run: npm run build --omit=dev -- --base-href=https://wesl2400-miun.github.io/tslab3/
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
@@ -47,7 +47,7 @@ jobs:
       # I dist-mappen hamnar den optimerade och produktionsfärdiga 
       # versionen av appen som skapas av Vite.
         with:
-          path: './dist/tslab3/browser/'
+          path: './dist/tslab3/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
