@@ -4,8 +4,7 @@ import { Convert } from './ui/component/convert/convert';
 import { Picture } from './ui/component/picture/picture';
 
 export const routes: Routes = [
-  { path: '', component: About },
-  { path: 'about', redirectTo: '', component: About, pathMatch: 'full' },
-  { path: 'convert', component: Convert, pathMatch: 'full' },
-  { path: 'picture', component: Picture, pathMatch: 'full' }
+  { path: 'about', component: About },
+  { path: 'convert', component: Convert },
+  { path: 'picture', component: Picture }
 ];
