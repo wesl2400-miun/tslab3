@@ -47,7 +47,7 @@ jobs:
       # I dist-mappen hamnar den optimerade och produktionsfärdiga 
       # versionen av appen som skapas av Vite.
         with:
-          path: './dist/tslab3/browser'
+          path: './dist/tslab3/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
