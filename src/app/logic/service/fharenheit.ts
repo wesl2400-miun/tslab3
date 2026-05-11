@@ -18,7 +18,7 @@ export class Fharenheit {
   }
 
   // Uppdatera Fharenheit värdet
-  public updateFhar = (
+  public update = (
     cels: number) => {
     const fhar: number = 
       this.toFhar(cels);

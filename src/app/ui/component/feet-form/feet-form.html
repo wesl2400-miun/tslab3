@@ -1,0 +1,12 @@
+<!-- Angulars reaktivt formulär 
+** Den lyssnar automatiskt efter händelser från feet-form-komponenten
+-->
+<section>
+  <h2>Meter to Feet Converter</h2>
+  <form [formGroup]="form">
+    <label for="meter">Meter</label>
+    <input id="meter" type="number" formControlName="meter">
+    <label for="feet">Feet</label>
+    <input id="feet" type="number" formControlName="feet">
+  </form>
+</section>

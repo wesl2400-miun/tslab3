@@ -14,14 +14,14 @@ export class FharenForm {
   private fBuilder: FormBuilder;
   public form: FormGroup;
   private subs: Subscription;
-  private result: Fharenheit;
+  private fharen: Fharenheit;
 
   constructor(
-    fharenheit: Fharenheit,
+    fharen: Fharenheit,
     fBuilder: FormBuilder) {
     this.fBuilder = fBuilder;
     this.subs = new Subscription();
-    this.result = fharenheit;
+    this.fharen = fharen;
     this.form = this.fBuilder
       .group({
       celsius: [{ value: 0, 
@@ -34,8 +34,10 @@ export class FharenForm {
   // Lägg till händelser till'subscriptions'
   // så att de kan observeras för ändringar
   public ngOnInit() {
-    this.subs.add(this.observeCels());
-    this.subs.add(this.observeFharen());
+    this.subs.add(
+      this.observeCels());
+    this.subs.add(
+      this.observeFharen());
   }
 
   // Sluta observera de olika händelser för att undvika 'memory-leaks'
@@ -53,19 +55,18 @@ export class FharenForm {
       .subscribe(value => {
       if(typeof value !== 'number')
         return;
-      this.result.updateFhar(value);
+      this.fharen.update(value);
     });
   }
 
-  // Fharenheit inmatning observeras här
-  // Fharenheit inmatningsfält kommer uppdateras
+  // Textfältet för Fharenheit observeras här och kommer uppdateras
   // när fharenheit värdet uppdateras via serviceklassen Fharenheit
   observeFharen = (): Subscription => {
-    return this.result.value$.subscribe(
-      value => {
+    return this.fharen.value$
+      .subscribe(value => {
       this.form.get('fharen')!
-        .setValue(value, 
-          { emitEvent: false });
+        .setValue(value, { 
+          emitEvent: false});
     });
   }
 }

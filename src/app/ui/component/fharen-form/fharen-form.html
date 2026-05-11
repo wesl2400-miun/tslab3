@@ -1,4 +1,12 @@
-<form [formGroup]="form">
-  <input type="number" formControlName="celsius">
-  <input type="number" formControlName="fharen">
-</form>
+<!-- Angulars reaktivt formulär 
+** Den lyssnar automatiskt efter händelser från fharen-form-komponenten
+-->
+<section>
+  <h2>Celsius to Fharenheit converter</h2>
+  <form [formGroup]="form">
+    <label for="celsius">Celsius</label>
+    <input id="celsius" type="number" formControlName="celsius">
+    <label for="celsius">Fharenheit</label>
+    <input id="fharen" type="number" formControlName="fharen">
+  </form>
+</section>
