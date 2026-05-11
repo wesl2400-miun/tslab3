@@ -35,15 +35,13 @@ jobs:
       # Installerar beroenden från package-lock.json
         run: npm ci
       - name: Build
-      # Bygg projektet med Vite och lägg till '/tslab3/browser' till bas-URL:en
-      # Detta är superviktigt - annars hittas inte projektfilerna
       # Detta är fungerande Angular publiceringsinställning
         run: npm run build -- --base-href=https://wesl2400-miun.github.io/tslab3/
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
-      # Den färdiga appen uppladdas från './dist'-mappen. 
+      # Den färdiga appen uppladdas från './dist/tslab3/browser'-mappen. 
       # I dist-mappen hamnar den optimerade och produktionsfärdiga 
       # versionen av appen som skapas av Vite.
         with:
