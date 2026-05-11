@@ -5,7 +5,7 @@ import { Picture } from './ui/page/picture/picture';
 
 // Här definieras rutterna för hela applikationen
 export const routes: Routes = [
-  { path: '', redirectTo: 'about' },
+  { path: '', redirectTo: 'about', pathMatch: 'full' },
   { path: 'about', component: About },
   { path: 'convert', component: Convert },
   { path: 'picture', component: Picture  }
