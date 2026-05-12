@@ -7,15 +7,52 @@ body {
   flex-direction: column;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: Verdana, sans-serif;
 }
 
-main {
+app-root, 
+app-fharen-form,
+app-feet-form, 
+app-picture,
+app-converter,
+app-about {
   width: 100%;
+  box-sizing: border-box;
   max-width: 600px;
+  padding: 0;
+  margin: 0;
+}
+
+header, 
+header a,
+header nav,
+header nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul {
+  list-style: none;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
   margin-bottom: 2rem;
 }
 
@@ -32,4 +69,33 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1rem;
+}
+
+.converter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  gap: 0.3rem;
+}
+
+.converter label {
+  font-weight: 600;
+}
+
+.converter input {
+  width: 280px;
+  height: 30px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+}
+
+.converter input[disabled] {
+  color: blue;
 }
