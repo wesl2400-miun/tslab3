@@ -1,1 +1,24 @@
-<p>picture works!</p>
+
+<main>
+  <h1>Bilder</h1>
+  <section class="card">
+    <h2>Titta på underbara havsvågor</h2>
+    <ul class="gallery">
+      @for (image of images; track image) {
+        <li>
+          <img 
+            src="assets/images/photo-800.jpg"
+            srcset="
+            ./asset/{{image.src}}_280w.jpg 280w,
+            ./asset/{{image.src}}_400w.jpg 400w,
+            ./asset/{{image.src}}_500w.jpg 500w"
+            sizes="(max-width: 500px) 280px, (max-width: 800px) 400px, 500px"
+            alt="{{image.alt}}"
+            fetchpriority="high">
+        </li>
+      } @empty {
+        <li>No picture available</li>
+      }
+    </ul>
+  </section>
+</main>
