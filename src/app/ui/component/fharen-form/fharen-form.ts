@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Fharenheit } from '../../../logic/service/fharenheit';
+import { CelsToFharen } from '../../../logic/service/cels-to-fharen';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
@@ -14,20 +14,20 @@ export class FharenForm {
   private fBuilder: FormBuilder;
   public form: FormGroup;
   private subs: Subscription;
-  private fharen: Fharenheit;
+  private cToF: CelsToFharen;
 
   constructor(
-    fharen: Fharenheit,
+    cToF: CelsToFharen,
     fBuilder: FormBuilder) {
     this.fBuilder = fBuilder;
     this.subs = new Subscription();
-    this.fharen = fharen;
+    this.cToF = cToF;
     this.form = this.fBuilder
       .group({
       celsius: [{ value: 0, 
         disabled: false }],
       fharen: [{value: 0, 
-        disabled: true}]
+        disabled: false }]
     });
   }
 
@@ -35,9 +35,13 @@ export class FharenForm {
   // så att de kan observeras för ändringar
   public ngOnInit() {
     this.subs.add(
-      this.observeCels());
+      this.celsForm());
     this.subs.add(
-      this.observeFharen());
+      this.fharenForm());
+    this.subs.add(
+      this.fharenVal());
+    this.subs.add(
+      this.celsVal());
   }
 
   // Sluta observera de olika händelser för att undvika 'memory-leaks'
@@ -49,22 +53,45 @@ export class FharenForm {
 
   // Celsius inmatning observeras här
   // Nytt värde kommer omvandlas till Fharenheit
-  observeCels = (): Subscription => {
+  celsForm = (): Subscription => {
     return this.form.get('celsius')!
       .valueChanges
       .subscribe(value => {
       if(typeof value !== 'number')
         return;
-      this.fharen.update(value);
+      this.cToF.updateFharen(value);
     });
   }
 
-  // Textfältet för Fharenheit observeras här och kommer uppdateras
-  // när fharenheit värdet uppdateras via serviceklassen Fharenheit
-  observeFharen = (): Subscription => {
-    return this.fharen.value$
+  // Fharenheit inmatning observeras här
+  // Nytt värde kommer omvandlas till Celsius
+  fharenForm = (): Subscription => {
+    return this.form.get('fharen')!
+      .valueChanges
+      .subscribe(value => {
+      if(typeof value !== 'number')
+        return;
+      this.cToF.updateCels(value);
+    });
+  }
+
+  // Värdet för Fharenheit observeras här och kommer uppdateras
+  // när fharenheit värdet uppdateras via serviceklassen CelsToFharen
+  fharenVal = (): Subscription => {
+    return this.cToF.fharen$
       .subscribe(value => {
       this.form.get('fharen')!
+        .setValue(value, { 
+          emitEvent: false});
+    });
+  }
+
+  // Värdet för Celsius observeras här och kommer uppdateras
+  // när Celsius värdet uppdateras via serviceklassen CelsToFharen
+  celsVal = (): Subscription => {
+    return this.cToF.cels$
+      .subscribe(value => {
+      this.form.get('celsius')!
         .setValue(value, { 
           emitEvent: false});
     });

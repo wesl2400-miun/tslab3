@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Fharenheit } from './fharenheit';
+import { CelsToFharen } from './cels-to-fharen';
 
 describe('Fharenheit', () => {
-  let service: Fharenheit;
+  let service: CelsToFharen;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Fharenheit);
+    service = TestBed.inject(CelsToFharen);
   });
 
   it('should be created', () => {

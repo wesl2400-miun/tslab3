@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Feet } from './feet';
+import { MeterToFeet } from './meter-to-feet';
 
 describe('Feet', () => {
-  let service: Feet;
+  let service: MeterToFeet;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Feet);
+    service = TestBed.inject(MeterToFeet);
   });
 
   it('should be created', () => {
