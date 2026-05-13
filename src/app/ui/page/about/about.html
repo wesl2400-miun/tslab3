@@ -3,6 +3,13 @@
   <h1>Laboration</h1>
   <section class="card">
     <h2>Om uppgiften</h2>
+    <p>Det första jag gjorde var att installera Angular lokalt, det vill säga enbart för det specifika projektet. Jag definierade tre korta skript i package.json-filen för ett smidigare arbete med Angular CLI. Innan jag ens började bygga applikationen, konfigurerade jag också skriptet för Github Actions och rutterna i routes-filen, eftersom jag redan av erfarenhet vet att det uppstår många sökvägsrelaterade fel under publiceringen.</p>
+    <p>När publiceringen till GitHub Pages lyckades genererade jag några komponenter och två service-klasser. Service-klasserna hanterar logiken bakom konverteraren och använder RxJS för att hämta och uppdatera data via reaktiv programmering. Jag överskrev Angulars komponentmetoder: onInit() och onDestroy() för att initiera Rx-flödet och stoppa det sedan när komponenten förstörs så att flödet inte fortsätter köra i bakgrunden och orsakar minnesläckor.</p>
+    <p>Egentligen är RxJS och en service-klass en 'overkill' för denna uppgift men jag ville träna inför projektet eftersom RxJS är särskilt nyttigt när man arbetar med asynkrona HTTP-förfrågor och stora mängder data som jag vet projektet ska inkludera. Av den anledning definierade jag också bilder som en lista med hjälp av 'databinding' och Angulars for-sats. Detta är något jag också ska ha nytta av senare när jag utvecklar kursens projekt.</p>
+    <p>För två år sedan gjorde jag en snabb och ytlig Udemy-kurs i Angular och RxJS är något som jag redan kan från förr (dock dess Java och Kotlin-version). Jag behövde därför bara fräscha upp minnet och stötte inte på många problem under utvecklingen, förutom konfigurationen av sökvägar i GitHub Action-, angular.json- och i app.routes.ts-filen. </p>
+    <p>Angular är till arkitektur och koncept också väldigt likt Android Native och dess olika ramverk som exempelvis Dagger och Dagger Hilt. Hade jag inte haft tidigare erfarenhet av dessa teknologier skulle jag antagligen rivit av mig håret av frustration.</p>
+    <p>Även om React är mycket lättare att lära sig och ger också mycket mer frihet, tycker jag att Angular faller mig mer i smak, eftersom jag personligen är lite old school och tycker om objektorienterad programmering.</p>
+    <p>Jag är vanligen inte så förtjust i frontend-ramverk eftersom de väldigt fort blir irrelevanta, lägger till många beroenden och är svårt att migrera, men måste jag välja något då tycker jag att Angular verkar trots allt det bästa valet. Detta med tanke på att det lär ut mjukvaruarktitektur, design patterns och bästa praxis som man har nytta av även om ramverkets 'hype' plötsligt upphör till förmån av nästa 'bästa' och 'coolaste' ramverket.</p>
   </section>
 </main>
 
