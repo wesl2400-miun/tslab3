@@ -1,0 +1,54 @@
+/** Stilmallen gäller element som finns definierade i app.html filen **/
+header, 
+.logo, 
+.nav,
+.nav ul,
+.nav ul li,
+.nav ul li a  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/** Stilmallen för hela header-elementet **/
+header,
+.logo {
+  flex-direction: column;
+}
+
+.logo {
+  box-shadow: 2px 3px 3px 0 var(--on-background);
+}
+
+/** Stilmallen för navigerinsfältet **/
+.nav ul {
+  flex-direction: row;
+  list-style: none;
+  gap: 0.3rem;
+  padding: 0.5rem 0;
+}
+
+.nav ul li a,
+.nav ul li a:link,
+.nav ul li a:visited {
+  text-decoration: none;
+  color: var(--on-primary);
+  font-size: 1.2rem;
+  background-color: var(--primary);
+  padding: 0.5rem;
+}
+
+.nav ul li a:hover {
+  background-color: var(--primary-variant);
+}
+
+/** Ordna elementen i navigationslistan i en kolumn när skärmbredden är lika med eller mindre äm 450px **/
+@media screen and (max-width: 450px) {
+  .nav ul {
+    flex-direction: column;
+  }
+}

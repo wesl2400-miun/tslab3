@@ -1,79 +1,35 @@
 /* Stillmallen gäller hela appen */
-body {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+:root {
+  --primary: #3751A0;
+  --primary-variant: #283976;
+  --secondary: #fff9ac;
+  --secondary-variant: #C2D0FF;
+  --on-surface: #292929;
+  --on-background: #595959;
+  --surface: #e0e0e0;
+  --on-primary: white;
   font-size: 16px;
   font-family: Verdana, sans-serif;
+  color: var(--on-surface);
 }
 
+body {
+  width: 100vw;
+}
+
+/** Komponent-taggarna måste stiliseras för att inställningarna 
+** i deras barnelement ska ta full effekt 
+**/
+body,
 app-root, 
 app-fharen-form,
 app-feet-form, 
 app-picture,
-app-converter,
-app-about {
-  width: 100%;
-  box-sizing: border-box;
-  max-width: 600px;
-  padding: 0;
-  margin: 0;
-}
-
-header, 
-header a,
-header nav,
-header nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-header nav ul {
-  list-style: none;
-  flex-direction: row;
-  gap: 1rem;
-}
-
-main {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 2rem;
-}
-
-.nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
-.card {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 1rem;
-}
-
+app-convert,
+app-about,
+main,
+.card,
 .converter {
   width: 100%;
   display: flex;
@@ -81,6 +37,30 @@ main {
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/** Stilmallen för huvudinnehållet **/
+main {
+  max-width: 600px;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+
+/** Stilmallen för sektionerna **/
+.card {
+  padding: 1rem;
+  background-color: var(--secondary);
+  border: 2px solid var(--primary);
+  border-radius: 0 10px 0 10px;
+}
+
+
+/** Stilmalen för konverteringsformuläret **/
+.converter {
   gap: 0.3rem;
 }
 
@@ -94,8 +74,25 @@ main {
   border-radius: 5px;
   box-sizing: border-box;
   font-size: 1.2rem;
+  color: var(--primary-variant);
+  border: 2px solid var(--on-surface);
 }
 
 .converter input[disabled] {
-  color: blue;
+  color: var(--on-surface);
+  background-color: var(--secondary-variant);
+}
+
+
+/** Stilmallen för rubriker **/
+h1 {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--on-background);
+}
+
+h2 {
+  color: var(--primary-variant);
 }

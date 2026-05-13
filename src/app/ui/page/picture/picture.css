@@ -1,11 +1,34 @@
-.gallery {
-  list-style: none;
+
+/** Stilmallen för bildsamlingen **/
+.gallery,
+.gallery li,
+.gallery li img {
   width: 100%;
+}
+
+.gallery,
+.gallery li {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.gallery {
+  list-style: none;
   margin: 0;
   padding: 0;
+  gap: 1rem;
+}
+
+.gallery li {
+  background-color: var(--on-primary);
+  margin: 0;
+  padding: 1rem;
+  box-shadow: 2px 3px 3px var(--on-background);
+}
+
+.gallery li img {
+  width: 100%;
 }
